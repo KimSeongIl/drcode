@@ -1,0 +1,100 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+group 'skhu'
+version '1.0'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+buildscript {
+	ext {
+		springBootVersion = '1.3.2.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven { url("http://repo.spring.io/plugins-release") }
+		maven { url("https://plugins.gradle.org/m2/") }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+	}
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+jar {
+	baseName = 'gradlett'
+	version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+	// mockito
+	testCompile 'org.mockito:mockito-all:1.10.19'
+	testCompile 'org.hamcrest:hamcrest-all:1.3'
+
+	compile 'org.springframework.boot:spring-boot-starter'
+	compile 'org.springframework.boot:spring-boot-starter-jdbc'
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile 'org.hibernate:hibernate-validator:5.2.1.Final'
+
+	// db
+	compile 'mysql:mysql-connector-java:5.1.6'
+	compile 'commons-dbcp:commons-dbcp:1.2.2'
+
+	// query dsl
+	compile 'com.mysema.querydsl:querydsl-jpa:3.6.9'
+	compile 'com.mysema.querydsl:querydsl-apt:3.6.9'
+
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	compile 'javax.el:javax.el-api:2.2.4'
+
+	// dozer
+	compile 'net.sf.dozer:dozer:5.5.1'
+	
+	// lombok
+	compile 'org.projectlombok:lombok:1.16.4'
+
+	// joda time
+	compile 'joda-time:joda-time:2.8.2'
+
+	// guava
+	compile 'com.google.guava:guava:19.0'
+	
+	//thymeleaf
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	
+	//webjars
+	compile("org.webjars:jquery:2.0.3-1")
+	compile("org.webjars:bootstrap:3.0.3")
+	
+	
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+
+eclipse {
+	classpath {
+		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7'
+	}
+}
+
+war {
+	archiveName  'ROOT.war'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.9'
+}
