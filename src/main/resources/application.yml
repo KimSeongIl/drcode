@@ -1,9 +1,9 @@
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testtest?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: apmsetup
+    url: jdbc:mysql://localhost:3306/drcode?useUnicode=true&characterEncoding=utf8
+    username: drcode
+    password: qwer1234
    
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -14,4 +14,4 @@ spring:
   thymeleaf:
     cache: false
 server:
-  port: 8018
+  port: 8015
