@@ -27,6 +27,8 @@ public class TestEntity {
 
 	@Column(name = "message", length = 11)
 	private String message;
+
+	
 	
 
 

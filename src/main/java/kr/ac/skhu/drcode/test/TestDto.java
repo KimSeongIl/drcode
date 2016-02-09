@@ -7,4 +7,5 @@ public class TestDto {
 
 	private int id;
 	private String message;
+	
 }

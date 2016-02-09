@@ -42,14 +42,14 @@ public class TestController {
 		
 		testService.saveTest(testDto);
 		
-		
 	}
 	
 	@RequestMapping(value="/test3/{id}" , method=RequestMethod.GET)
 	public TestDto test3(@PathVariable int id){
 		
 		TestDto testDto=new TestDto();
-		testDto.setId(id);
+		
+		testDto.setId(id); 
 		
 		
 		return testService.findTest(testDto);

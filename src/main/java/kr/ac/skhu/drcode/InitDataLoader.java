@@ -10,7 +10,7 @@ public class InitDataLoader {
 
 	public void init() {
 		log.info("InitDataLoader : ");
-
+		
 	}
 }
 
