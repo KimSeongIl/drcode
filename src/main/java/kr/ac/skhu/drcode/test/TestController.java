@@ -18,13 +18,14 @@ public class TestController {
 	@Autowired
 	private TestService testService;
 
-	@RequestMapping(value="/test")
+	@RequestMapping(value="/{id}")
 	public Map<String,Object> test() throws TestException{
 		
 		Map<String,Object> map=new HashMap<String,Object>();
 		map.put("aa", "bb");
 		
-		return JsonUtil.putSuccessJsonContainer(map);
+		
+		return map;
 		
 	}
 	
