@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode
+
 @Data
 @Entity
 @Table(name = "test", catalog = "drcode")

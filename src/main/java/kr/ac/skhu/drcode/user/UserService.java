@@ -13,7 +13,11 @@ public class UserService {
 	@Autowired
 	private DozerBeanMapper dozer;
 	
+	
 	public UserDto getUser(int id){
-		return dozer.map(userRepository.findOne(id),UserDto.class);
+		UserEntity entity=userRepository.findOne(id);
+		UserDto user=dozer.map(entity,UserDto.class);
+		
+		return user;
 	}
 }

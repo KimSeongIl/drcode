@@ -1,9 +1,8 @@
 package kr.ac.skhu.drcode.assignment;
 
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -19,21 +18,27 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import kr.ac.skhu.drcode.assignmentUser.AssignmentUserEntity;
 import kr.ac.skhu.drcode.subject.SubjectEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode
-@Data
+
+
 @Entity
 @Table(name = "assignment", catalog = "drcode")
-public class AssignmentEntity {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=AssignmentEntity.class)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class AssignmentEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id",  unique = true, nullable = false)
 	private int id;
+	
 	
 	@Column(name = "assignment_name")
 	private String assignmentName;
@@ -61,11 +66,81 @@ public class AssignmentEntity {
 	private SubjectEntity subject;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assignment")
-	List<AssignmentUserEntity> assignmentUsers=new ArrayList<AssignmentUserEntity>(0);
-	
-	public void addAssignmentUsers(AssignmentUserEntity assignmentUser){
-		this.assignmentUsers.add(assignmentUser);
+	Set<AssignmentUserEntity> assignmentUsers =new HashSet<AssignmentUserEntity>(0);
+
+	public int getId() {
+		return id;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getAssignmentName() {
+		return assignmentName;
+	}
+
+	public void setAssignmentName(String assignmentName) {
+		this.assignmentName = assignmentName;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getLimitTime() {
+		return limitTime;
+	}
+
+	public void setLimitTime(Date limitTime) {
+		this.limitTime = limitTime;
+	}
+
+	public Date getRetentionTime() {
+		return retentionTime;
+	}
+
+	public void setRetentionTime(Date retentionTime) {
+		this.retentionTime = retentionTime;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public SubjectEntity getSubject() {
+		return subject;
+	}
+
+	public void setSubject(SubjectEntity subject) {
+		this.subject = subject;
+	}
+
+	public Set<AssignmentUserEntity> getAssignmentUsers() {
+		return assignmentUsers;
+	}
+
+	public void setAssignmentUsers(Set<AssignmentUserEntity> assignmentUsers) {
+		this.assignmentUsers = assignmentUsers;
+	}
+
+
 	
 	
 	

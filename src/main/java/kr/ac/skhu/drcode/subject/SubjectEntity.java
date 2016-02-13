@@ -1,9 +1,9 @@
 package kr.ac.skhu.drcode.subject;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,21 +16,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import kr.ac.skhu.drcode.assignment.AssignmentEntity;
 import kr.ac.skhu.drcode.user.UserEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode
-@Data
+
+
+
 @Entity
 @Table(name = "subject", catalog = "drcode")
-public class SubjectEntity {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=SubjectEntity.class)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class SubjectEntity{
+
+	
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id",  unique = true, nullable = false)
 	private int id;
+	
+	
 	
 	@Column(name = "subject_code")
 	private String subjectCode;
@@ -42,11 +53,58 @@ public class SubjectEntity {
 	@JoinColumn(name = "professor_id")
 	private UserEntity professor;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subject")
-	private List<AssignmentEntity> assignments = new ArrayList<AssignmentEntity>(0);
+
+	
+	
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subject" )
+	private Set<AssignmentEntity> assignments = new HashSet<AssignmentEntity>(0);
 	
 	public void addAssignments(AssignmentEntity assignment){
 		this.assignments.add(assignment);
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getSubjectCode() {
+		return subjectCode;
+	}
+
+	public void setSubjectCode(String subjectCode) {
+		this.subjectCode = subjectCode;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+
+	public UserEntity getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(UserEntity professor) {
+		this.professor = professor;
+	}
+
+	public Set<AssignmentEntity> getAssignments() {
+		return assignments;
+	}
+
+	public void setAssignments(Set<AssignmentEntity> assignments) {
+		this.assignments = assignments;
+	}
+
+	
+	
 	
 }
