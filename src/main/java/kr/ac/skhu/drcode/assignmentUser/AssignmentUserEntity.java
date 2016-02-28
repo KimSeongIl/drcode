@@ -4,6 +4,8 @@ package kr.ac.skhu.drcode.assignmentUser;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,7 +34,7 @@ import lombok.Data;
 @Table(name = "assignment_user", catalog = "drcode")
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=AssignmentUserEntity.class)
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class AssignmentUserEntity{
+public class AssignmentUserEntity implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

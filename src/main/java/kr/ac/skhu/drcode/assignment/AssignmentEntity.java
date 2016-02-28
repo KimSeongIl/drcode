@@ -1,6 +1,7 @@
 package kr.ac.skhu.drcode.assignment;
 
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +23,7 @@ import javax.persistence.TemporalType;
 
 
 
+
 import kr.ac.skhu.drcode.assignmentUser.AssignmentUserEntity;
 import kr.ac.skhu.drcode.subject.SubjectEntity;
 import lombok.Data;
@@ -32,7 +34,7 @@ import lombok.Data;
 @Table(name = "assignment", catalog = "drcode")
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=AssignmentEntity.class)
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class AssignmentEntity{
+public class AssignmentEntity implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

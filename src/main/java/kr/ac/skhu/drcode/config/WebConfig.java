@@ -41,5 +41,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         converters.add(jacksonMessageConverter);
+        
+        
+        
     }
 }

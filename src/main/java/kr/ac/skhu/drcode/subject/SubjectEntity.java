@@ -1,8 +1,10 @@
 package kr.ac.skhu.drcode.subject;
 
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
 
 
 
@@ -25,6 +27,7 @@ import javax.persistence.Table;
 
 
 
+
 import kr.ac.skhu.drcode.assignment.AssignmentEntity;
 import kr.ac.skhu.drcode.user.UserEntity;
 import lombok.Data;
@@ -36,7 +39,7 @@ import lombok.Data;
 @Table(name = "subject", catalog = "drcode")
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=SubjectEntity.class)
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class SubjectEntity{
+public class SubjectEntity implements Serializable{
 
 	
 

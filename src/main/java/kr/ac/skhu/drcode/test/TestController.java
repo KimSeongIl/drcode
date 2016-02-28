@@ -1,59 +1,74 @@
 package kr.ac.skhu.drcode.test;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.websocket.Session;
 
 import kr.ac.skhu.drcode.exception.TestException;
 import kr.ac.skhu.drcode.util.JsonUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.sockjs.transport.session.WebSocketServerSockJsSession;
 
 @RestController
 public class TestController {
-	
-	@Autowired
-	private TestService testService;
 
-	@RequestMapping(value="/{id}")
-	public Map<String,Object> test() throws TestException{
+	@Autowired
+	private ScheduleTask task;
+	@Autowired
+	private SimpMessagingTemplate template;
+
+	@MessageMapping("/hello")
+	@SendToUser("/topic/greetings")
+	public Greeting greeting(HelloMessage message,SimpMessageHeaderAccessor headerAccessor) throws Exception {
+
+
+		Thread.sleep(3000); // simulated delay
+		System.out.println(headerAccessor.getSessionId());
 		
-		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("aa", "bb");
 		
 		
-		return map;
+		
+		return new Greeting(headerAccessor.getSessionId());
+	}
+
+	@MessageMapping("/hello2")
+	public void hello2(HelloMessage message,SimpMessageHeaderAccessor headerAccessor) throws Exception {
+
+
+		Thread.sleep(3000); // simulated delay
+		System.out.println(headerAccessor.getSessionId());
+		
+		template.convertAndSendToUser(headerAccessor.getSessionId(),"/topic/greetings", "dkdkdk"+headerAccessor.getSessionId());
+		
+		
 		
 	}
 	
-	@RequestMapping(value="/test2")
-	public Map<String,Object> test2() throws TestException{
-		
-	
-		
-		throw new TestException("errorTest");
-		
+	@RequestMapping("/test22")
+	public TestDto test22() throws InterruptedException{
+
+
+		Thread.sleep(3000);
+		task.trigger();
+
+		System.out.println(22);
+		return null;
 	}
-	
-	@RequestMapping(value="/test3" , method=RequestMethod.POST)
-	public void test3(TestDto testDto){
-		
-		testService.saveTest(testDto);
-		
-	}
-	
-	@RequestMapping(value="/test3/{id}" , method=RequestMethod.GET)
-	public TestDto test3(@PathVariable int id){
-		
-		TestDto testDto=new TestDto();
-		
-		testDto.setId(id); 
-		
-		
-		return testService.findTest(testDto);
-		
-	}
+
 }
