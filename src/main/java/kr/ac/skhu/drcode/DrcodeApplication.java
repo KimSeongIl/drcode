@@ -26,6 +26,7 @@ public class DrcodeApplication extends SpringBootServletInitializer{
 		return new InitDataLoader();
 	}
  
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(DrcodeApplication.class);

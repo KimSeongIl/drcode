@@ -2,8 +2,10 @@ package kr.ac.skhu.drcode.user;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+@Component
 @Service
 public class UserService {
 
@@ -15,6 +17,7 @@ public class UserService {
 	
 	
 	public UserDto getUser(int id){
+		
 		UserEntity entity=userRepository.findOne(id);
 		UserDto user=dozer.map(entity,UserDto.class);
 		

@@ -23,6 +23,7 @@ public class TestController {
 		
 		Map<String,Object> map=new HashMap<String,Object>();
 		map.put("aa", "bb");
+		map.put("test", "tetset");
 		
 		
 		return map;

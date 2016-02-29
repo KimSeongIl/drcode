@@ -79,7 +79,12 @@ dependencies {
 	compile("org.webjars:jquery:2.0.3-1")
 	compile("org.webjars:bootstrap:3.0.3")
 	
-	
+	//spring security
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    runtime('com.h2database:h2')
+    
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
