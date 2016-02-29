@@ -79,6 +79,9 @@ dependencies {
 	compile("org.webjars:jquery:2.0.3-1")
 	compile("org.webjars:bootstrap:3.0.3")
 	
+	//websocket
+	compile("org.springframework.boot:spring-boot-starter-websocket")
+    compile("org.springframework:spring-messaging")
 	
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

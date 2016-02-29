@@ -24,4 +24,5 @@ public class DozerHelper {
 
         return dest;
     }
+    
 }

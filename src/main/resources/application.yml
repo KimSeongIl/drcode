@@ -13,5 +13,8 @@ spring:
   
   thymeleaf:
     cache: false
+    
+  
+  
 server:
   port: 8015

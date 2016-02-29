@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface TestRepository extends CrudRepository<TestEntity,Integer>{
 
 	
+	
 }
