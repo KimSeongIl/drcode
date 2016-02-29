@@ -24,7 +24,7 @@ public class DrcodeApplication extends SpringBootServletInitializer{
 	@Bean(initMethod = "init")
 	public InitDataLoader initDataLoader(){
 		return new InitDataLoader();
-	}
+	} 
  
 	
 	@Override
@@ -32,7 +32,6 @@ public class DrcodeApplication extends SpringBootServletInitializer{
 		return application.sources(DrcodeApplication.class);
 	}
 	
-    
 	
 
 }

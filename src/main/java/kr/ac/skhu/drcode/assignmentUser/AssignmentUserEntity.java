@@ -4,6 +4,8 @@ package kr.ac.skhu.drcode.assignmentUser;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,17 +21,20 @@ import kr.ac.skhu.drcode.user.UserEntity;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+
+import lombok.Data;
 
 
 
+
+
+@Data
 @Entity
 @Table(name = "assignment_user", catalog = "drcode")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=AssignmentUserEntity.class)
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class AssignmentUserEntity{
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=AssignmentUserEntity.class)
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class AssignmentUserEntity implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,6 +46,7 @@ public class AssignmentUserEntity{
 	@JoinColumn(name = "assignment_id", nullable = false)
 	private AssignmentEntity assignment;
 	
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
 	private UserEntity user;
@@ -48,37 +54,7 @@ public class AssignmentUserEntity{
 	@Column(name = "score")
 	private double score;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public AssignmentEntity getAssignment() {
-		return assignment;
-	}
-
-	public void setAssignment(AssignmentEntity assignment) {
-		this.assignment = assignment;
-	}
-
-	public UserEntity getUser() {
-		return user;
-	}
-
-	public void setUser(UserEntity user) {
-		this.user = user;
-	}
-
-	public double getScore() {
-		return score;
-	}
-
-	public void setScore(double score) {
-		this.score = score;
-	}
+	
 
 
 	

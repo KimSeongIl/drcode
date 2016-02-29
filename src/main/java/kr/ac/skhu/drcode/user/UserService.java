@@ -19,7 +19,13 @@ public class UserService {
 	public UserDto getUser(int id){
 		
 		UserEntity entity=userRepository.findOne(id);
-		UserDto user=dozer.map(entity,UserDto.class);
+		UserDto user=new UserDto();
+		user.setId(entity.getId());
+		user.setPassword(entity.getPassword());
+		user.setAuth(entity.getAuth());
+		user.setEmail(entity.getEmail());
+	
+		
 		
 		return user;
 	}

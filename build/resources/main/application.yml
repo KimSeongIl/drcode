@@ -3,7 +3,11 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/drcode?useUnicode=true&characterEncoding=utf8
     username: root
+<<<<<<< HEAD
     password: open123
+=======
+    password: apmsetup
+>>>>>>> branch 'master' of https://github.com/KimSeongIl/drcode.git
    
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
