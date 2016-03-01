@@ -10,15 +10,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.skhu.drcode.user.UserDto;
+import kr.ac.skhu.drcode.user.UserRepository;
 import kr.ac.skhu.drcode.user.UserService;
 
 @Component
 @Service
 public class SecurityUserDetailServiceCustom implements UserDetailsService {
 
+	
+	private final UserRepository userRepository;
+	private final UserService userService;
 
-
-	private UserService userService = new UserService();
+	@Autowired
+	public SecurityUserDetailServiceCustom(UserRepository userRepository,UserService userService){
+		this.userRepository = userRepository;
+		this.userService = userService;
+	}
 	
 	
 	@Transactional(readOnly=true)
@@ -29,7 +36,7 @@ public class SecurityUserDetailServiceCustom implements UserDetailsService {
 		System.out.println("유저넘버:"+userNumber);
 		
 		UserDto drUser = userService.getUser(userNumber);
-		System.out.println(drUser);
+		System.out.println("유저객체:"+drUser);
 		
 		
 		//status 미사용시

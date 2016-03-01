@@ -3,6 +3,8 @@ package kr.ac.skhu.drcode.security;
 import kr.ac.skhu.drcode.security.SecurityUserDetailServiceCustom;
 import kr.ac.skhu.drcode.securityhandler.SecurityFailureHandler;
 import kr.ac.skhu.drcode.securityhandler.SecuritySuccessHandler;
+import kr.ac.skhu.drcode.user.UserRepository;
+import kr.ac.skhu.drcode.user.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -16,15 +18,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class Securityconfig extends WebSecurityConfigurerAdapter {
 	
-	SecuritySuccessHandler securitySuccessHandler = new SecuritySuccessHandler();
-	SecurityFailureHandler securityFailureHandler = new SecurityFailureHandler();
+	@Autowired SecuritySuccessHandler securitySuccessHandler;
+	@Autowired SecurityFailureHandler securityFailureHandler;
+	
+	@Autowired UserRepository userRepository;
+	@Autowired UserService userService;
+	
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		
-		//auth.userDetailsService(new SecurityUserDetailServiceCustom());
-		auth.inMemoryAuthentication()
-        	.withUser("aa").password("aa").roles("USER");
+	
+		auth
+			.userDetailsService(new SecurityUserDetailServiceCustom(userRepository,userService));
+			//.passwordEncoder(new BCryptPasswordEncoder());
+
 
 	}
 
@@ -33,11 +40,11 @@ public class Securityconfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/resources/static/**").permitAll()
-				.antMatchers("/","/adminpagetest").hasRole("USER")
+				.antMatchers("/adminpagetest.html").hasRole("USER")
 			.and()
 			.formLogin()
 				.loginPage("/")
-				.loginProcessingUrl("/adminpagetest")
+				.loginProcessingUrl("/loginProcessingUrltest")
 				.usernameParameter("username")
 				.passwordParameter("password")
 				.successHandler(securitySuccessHandler)
