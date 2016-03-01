@@ -22,7 +22,7 @@ public class WebController {
 		return "index";
 	}
 	
-	@RequestMapping("/login" )
+	@RequestMapping("/login")
 	public String login(){
 		return "logintest";
 	}

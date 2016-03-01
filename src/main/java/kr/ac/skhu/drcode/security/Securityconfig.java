@@ -1,6 +1,8 @@
 package kr.ac.skhu.drcode.security;
 
 import kr.ac.skhu.drcode.security.SecurityUserDetailServiceCustom;
+import kr.ac.skhu.drcode.securityhandler.SecurityFailureHandler;
+import kr.ac.skhu.drcode.securityhandler.SecuritySuccessHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -14,10 +16,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class Securityconfig extends WebSecurityConfigurerAdapter {
 	
+	SecuritySuccessHandler securitySuccessHandler = new SecuritySuccessHandler();
+	SecurityFailureHandler securityFailureHandler = new SecurityFailureHandler();
+	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		
-		auth.userDetailsService(new SecurityUserDetailServiceCustom());
+		//auth.userDetailsService(new SecurityUserDetailServiceCustom());
+		auth.inMemoryAuthentication()
+        	.withUser("aa").password("aa").roles("USER");
 
 	}
 
@@ -25,13 +32,17 @@ public class Securityconfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/").hasRole("USER")
+				.antMatchers("/resources/static/**").permitAll()
+				.antMatchers("/","/adminpagetest").hasRole("USER")
 			.and()
 			.formLogin()
-				.loginPage("/login")
-				.loginProcessingUrl("/")
+				.loginPage("/")
+				.loginProcessingUrl("/adminpagetest")
 				.usernameParameter("username")
-				.passwordParameter("pw")
+				.passwordParameter("password")
+				.successHandler(securitySuccessHandler)
+				.failureHandler(securityFailureHandler)
+				.permitAll()
 			.and()
 				.csrf()
 					.disable()
