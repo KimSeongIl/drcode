@@ -85,6 +85,10 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     runtime('com.h2database:h2')
     
+    //websocket
+    compile("org.springframework.boot:spring-boot-starter-websocket")
+    compile("org.springframework:spring-messaging")
+    
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 

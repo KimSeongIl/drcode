@@ -121,4 +121,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 src/main/resources/application.yml
-
+.svn
