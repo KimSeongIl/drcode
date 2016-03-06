@@ -15,4 +15,22 @@ public class WebController {
 		return "index";
 	}
 	
+	@RequestMapping(value="/" , method=RequestMethod.POST)
+	public String indexpost(){
+		
+		
+		return "index";
+	}
+	
+	@RequestMapping("/login" )
+	public String login(){
+		return "logintest";
+	}
+	
+	
+	@RequestMapping("/adminpagetest")
+	public String admin(){
+		
+		return "adminpagetest";
+	}
 }

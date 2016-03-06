@@ -9,20 +9,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-	
-	 private final UserRepository userRepository;
-
-	 @Autowired
-	 public UserService(UserRepository userRepository) {
-		 this.userRepository = userRepository;
-	 }
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
 	private DozerBeanMapper dozer;
 	
 	
 	public UserDto getUser(int id){
-		System.out.println("유저레포:"+userRepository);
+		
 		UserEntity entity=userRepository.findOne(id);
 		UserDto user=new UserDto();
 		user.setId(entity.getId());
