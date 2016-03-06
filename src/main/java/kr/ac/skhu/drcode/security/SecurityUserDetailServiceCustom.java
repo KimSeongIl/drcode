@@ -10,15 +10,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.skhu.drcode.user.UserDto;
+import kr.ac.skhu.drcode.user.UserRepository;
 import kr.ac.skhu.drcode.user.UserService;
 
 @Component
 @Service
 public class SecurityUserDetailServiceCustom implements UserDetailsService {
 
+	private final UserRepository userRepository;
+	private final UserService userService;
 
+	@Autowired
+	public SecurityUserDetailServiceCustom(UserRepository userRepository,UserService userService){
+		this.userRepository = userRepository;
+		this.userService = userService;
+	}
 
-	private UserService userService = new UserService();
 	
 	
 	@Transactional(readOnly=true)

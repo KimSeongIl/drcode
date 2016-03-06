@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-	@Autowired
-	private UserRepository userRepository;
+	 private final UserRepository userRepository;
+	 
+	 @Autowired
+	 public UserService(UserRepository userRepository) {
+		 this.userRepository = userRepository;
+	 }
 	
 	@Autowired
 	private DozerBeanMapper dozer;
