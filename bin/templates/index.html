@@ -1,103 +1,140 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
 <script src="webjars/jquery/2.0.3/jquery.min.js"></script>
 
 <link rel="stylesheet" href="css/demo.css" />
+<link rel="stylesheet" href="css/animate-custom.css" />
+<link rel="stylesheet" href="css/style.css" />
+
 </head>
 
-<body class="landing">
-		<div id="page-wrapper">
+<body>
+	<div class="page-wrapper">
+
+		<!-- Codrops top bar -->
+			
 		
-
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">dr.code</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#">코딩</a>
-								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="elements.html">내 정보</a></li>
-							<li><a href="#" class="button special">회원가입</a></li>
-						</ul>
-					</nav>
-				</header>
-
-			<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<div class="loginform">
-								<form action="/dd" method="POST">
-									<div class="idform" >
-									ID <input type="text" name="username"/>
-									</div>
-									<div class="passwordform">
-									PassWord <input type="password" name="pw"/>
-									 </div>
-							
-									<button class="loginbutton" type="submit"> 로그인 </button>
-								</form>
-							</div>
-						</header>
-						<span class="image"><img class="notebook" src="img/pic01.jpg" alt="" /></span>
-					</div>
-					<a href="#one" class="goto-next scrolly">Next</a>
-				</section>
-
-			
-
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</footer>
-
+		<header>
+		<div id="hleft">
+		<img src="img/dr.png" style="width:200px; height:90px;">
 		</div>
-
-		<!-- Scripts -->
+		<div id="hcenter">
+			<img src = "img/gear.gif">		
+				<h1>
+					This is your <strong>workspace</strong>
+				</h1>					
+				<h2>Here is a web-based Lab page Dr.code</h2>
+						
+				<div class="support-note">
+					<span class="note-ie">Sorry, only modern browsers.</span>
+				</div>
+		</div>
+		<div id="hright">
+			<a href="http://www.skhu.ac.kr" target="_blank"><img src="img/skhu.png" style="width:100px; height:120px;"></a>
+			<a href="http://ecareer.skhu.ac.kr" target="_blank"><img src="img/ecareer.png" style="width:100px; height:120px;"></a>
+			<a href="http://forest.skhu.ac.kr" target="_blank"><img src="img/forest.png" style="width:100px; height:120px;"></a>
+			<a href="http://library.skhu.ac.kr" target="_blank"><img src="img/lib.png" style="width:100px; height:120px;"></a>
+			<a href="http://com.skhu.ac.kr" target="_blank"><img src="img/elec.png" style="width:100px; height:120px;"></a>
+		</div>
+		<div class="clear"></div>
 			
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
+		</header>
+
+		<section class="main">
+			<div class="background_black">
 			
-			<script src="assets/js/main.js"></script>
+				 <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <a class="hiddenanchor" id="toforgotpw"></a>
+                    
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form action="mysuperscript.html" autocomplete="on"> 
+                                <h1>로그인</h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon1="u" > 아이디(학번) </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="student id"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon1="p"> 비밀번호  </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="password" /> 
+                                </p>
+                                <p class="login button"> 
+                                    <input type="submit" value="Login" /> 
+								</p>
+                                <p class="change_link">
+									
+									<a href="#toregister" class="to_register">회원가입</a>
+									
+									<a href="#toforgotpw" class="to_forgotpw">비밀번호 찾기</a>
+								</p>
+                            </form>
+                        </div>
+                        
+                        <div id="forgotpw" class="animate form">
+                            <form action="mysuperscript.php" autocomplete="on"> 
+                                <h1>비밀번호 찾기</h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon1="u" > 아이디(학번) </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="student id"/>
+                                </p>
+                                <p> 
+                                    <label for="email" class="email" data-icon1="u"> 이메일  </label>
+                                    <input id="email" name="email" required="required" type="email" placeholder="your e-mail" /> 
+                                </p>
+                                <p class="login button"> 
+                                    <input type="submit" value="확인" /> 
+								</p>
+                                <p class="change_link">
+									
+									<a href="#tologin" class="to_fotgotpw"> 로그인 </a>
+									
+								</p>
+                            </form>
+                        </div>                     
 
-	</body>
-
-
-
-
-
-
-
-
+                        <div id="register" class="animate form">
+                            <form action="mysuperscript.php" autocomplete="on"> 
+                                <h1> 회원가입 </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname" data-icon2="u"></label>
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="학번을 입력" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon2="u" > </label>
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="이름"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon2="e"></label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="이메일을 입력"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon2="p"> </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="비밀번호을 입력"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon2="p"> </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="비밀번호 확인"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon2="u"> </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="주 사용 언어"/>
+                                </p>
+                                <p class="signin button"> 
+									<input type="submit" value="Sign up"/> 
+								</p>
+                                <p class="change_link">  
+									
+									<a href="#tologin" class="to_login"> 로그인 </a>
+								</p>	
+                            </form>
+                        </div>						
+                    </div>
+			</div>
+		</section>
+	</div>
+</body>
 </html>
