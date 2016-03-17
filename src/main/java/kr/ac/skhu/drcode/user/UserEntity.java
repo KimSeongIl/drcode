@@ -52,6 +52,7 @@ import lombok.Data;
 
 
 
+
 @Data
 @Entity
 @Table(name = "user", catalog = "drcode")
@@ -67,7 +68,7 @@ public class UserEntity implements Serializable{
 	
 
 	@Column(name = "user_number")
-	private int userNumber;
+	private String userNumber;
 	
 	
 	@Column(name = "password")

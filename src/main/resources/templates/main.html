@@ -3,71 +3,56 @@
 <head>
 <link rel="stylesheet"
 	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-<link rel="stylesheet" href="css/demo.css" />
+
+<link rel="stylesheet" href="css/main.css" />
+
+<script>
+	$(document).ready(function(){
+		
+		$('#codeContainer').css('height',$('body').outerHeight()-$('#header').outerHeight())
+		  $("#console").resizable({ handles: 'n' }).bind("resize", function (e, ui) {
+	            $(this).css("top", "auto");
+	        });
+	})
+
+</script>
 </head>
 
-<body id="landing">
-	
-	
-
-	<div id="page-wrapper">
-
-
-		<!-- Header -->
-		<header id="header">
-			<h1 id="logo">
-				<a href="index.html">dr.code</a>
-			</h1>
-			<nav id="nav">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="#">코딩</a>
-						<ul>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html">No Sidebar</a></li>
-							<li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul></li>
-						</ul></li>
-					<li><a href="elements.html">내 정보</a></li>
-					<li><a href="#" class="button special">회원가입</a></li>
-				</ul>
-			</nav>
-		</header>
-
-		<!-- Banner -->
+<body>
+	<div id="wrap">
+		<div id="header">
+			<div id="lang">
+				언어
+			</div>
+			<div id="theme">
+				테마
+			</div>
+			<div id="font">
+				폰트
+			</div>
+		</div>
 		
-			
-			
-			
-			
-
-
-		<!-- Footer -->
-		<footer id="footer">
-
-			<ul class="copyright">
-				<li>&copy; Untitled. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</footer>
-
+		<div id="codeContainer">
+		
+			<div id="code">
+				dd
+			</div>
+		
+			<div id="console" >
+				dddd
+			</div>
+		</div>
+		
+	
 	</div>
+	
 
 
 </body>
-
-
-
-
-
 
 
 

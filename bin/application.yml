@@ -3,7 +3,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/drcode?useUnicode=true&characterEncoding=utf8
     username: root
-    password: apmsetup
+    password: open123
 
    
   jpa:

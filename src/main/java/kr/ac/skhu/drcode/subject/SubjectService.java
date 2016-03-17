@@ -21,13 +21,16 @@ public class SubjectService {
 	public SubjectDto getSubject(int id){
 		
 		
+		SubjectEntity se = subjectRepository.findOne(id);
+		SubjectDto sd = new SubjectDto();
+		sd.setId(se.getId());
+		sd.setProfessorId(null);
+		sd.setSubjectCode(se.getSubjectCode());
+		sd.setSubjectName(se.getSubjectName());
 		
 		
 		
 		
-		
-		
-		
-		return null;
+		return sd;
 	}
 }

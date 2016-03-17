@@ -1,0 +1,54 @@
+html,body{
+	height:100%;
+}
+#wrap{
+	
+	min-width:1040px;
+	
+	height:100%;
+}
+
+#header{
+	
+	height:40px;
+	border-bottom:1px solid #dedede;
+}
+
+#header div{
+	float:left;
+	width:100px;
+	padding:10px;
+	text-align:center;
+}
+
+#codeContainer{
+	position:relative;
+	width:90%;
+	height:100%;
+	margin:auto;
+	border-left:1px solid #dedede;
+	border-right:1px solid #dedede;
+	
+}
+#code{
+	
+	
+}
+
+
+#console{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	border:0px;
+	border-top:1px solid #dedede;
+	height:194px;
+	width:100%;
+	margin:0 auto;
+	min-height:60px;
+	max-height:600px;
+	
+	
+}
+

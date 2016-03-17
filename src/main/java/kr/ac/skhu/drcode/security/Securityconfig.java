@@ -26,7 +26,7 @@ public class Securityconfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		
+		System.out.println("dddd");
 		auth
 		.userDetailsService(new SecurityUserDetailServiceCustom(userRepository,userService));
 		//.passwordEncoder(new BCryptPasswordEncoder());
@@ -38,13 +38,15 @@ public class Securityconfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/resources/static/**").permitAll()
-				.antMatchers("/").hasRole("USER")
+				.antMatchers("/**").permitAll()//hasRole("USER")
 			.and()
 			.formLogin()
-				.loginPage("/login")
-				.loginProcessingUrl("/dd")
+				.loginPage("/")
+				.loginProcessingUrl("/login")
 				.usernameParameter("username")
-				.passwordParameter("pw")
+				.passwordParameter("password")
+				.successHandler(securitySuccessHandler)
+				.failureHandler(securityFailureHandler)
 				.permitAll()
 			.and()
 				.csrf()

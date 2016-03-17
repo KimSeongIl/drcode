@@ -16,7 +16,9 @@ public class SecurityFailureHandler implements AuthenticationFailureHandler{
 	public void onAuthenticationFailure(HttpServletRequest requset, HttpServletResponse response, AuthenticationException authentication)
 			throws IOException, ServletException {
 	
-	
+		System.out.println("SecurityFailureHandler");
+		
+		
 	}
 
 }

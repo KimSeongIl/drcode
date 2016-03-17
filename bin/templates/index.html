@@ -5,9 +5,9 @@
 	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
 <script src="webjars/jquery/2.0.3/jquery.min.js"></script>
 
-<link rel="stylesheet" href="css/demo.css" />
+<link rel="stylesheet" href="css/index.css" />
 <link rel="stylesheet" href="css/animate-custom.css" />
-<link rel="stylesheet" href="css/style.css" />
+
 
 </head>
 
@@ -19,10 +19,10 @@
 		
 		<header>
 		<div id="hleft">
-		<img src="img/dr.png" style="width:200px; height:90px;">
+		<img src="img/dr.png" style="width:200px; height:90px;"/>
 		</div>
 		<div id="hcenter">
-			<img src = "img/gear.gif">		
+			<img src = "img/gear.gif"/>
 				<h1>
 					This is your <strong>workspace</strong>
 				</h1>					
@@ -33,11 +33,11 @@
 				</div>
 		</div>
 		<div id="hright">
-			<a href="http://www.skhu.ac.kr" target="_blank"><img src="img/skhu.png" style="width:100px; height:120px;"></a>
-			<a href="http://ecareer.skhu.ac.kr" target="_blank"><img src="img/ecareer.png" style="width:100px; height:120px;"></a>
-			<a href="http://forest.skhu.ac.kr" target="_blank"><img src="img/forest.png" style="width:100px; height:120px;"></a>
-			<a href="http://library.skhu.ac.kr" target="_blank"><img src="img/lib.png" style="width:100px; height:120px;"></a>
-			<a href="http://com.skhu.ac.kr" target="_blank"><img src="img/elec.png" style="width:100px; height:120px;"></a>
+			<a href="http://www.skhu.ac.kr" target="_blank"><img src="img/skhu.png" style="width:100px; height:120px;"/></a>
+			<a href="http://ecareer.skhu.ac.kr" target="_blank"><img src="img/ecareer.png" style="width:100px; height:120px;"/></a>
+			<a href="http://forest.skhu.ac.kr" target="_blank"><img src="img/forest.png" style="width:100px; height:120px;"/></a>
+			<a href="http://library.skhu.ac.kr" target="_blank"><img src="img/lib.png" style="width:100px; height:120px;"/></a>
+			<a href="http://com.skhu.ac.kr" target="_blank"><img src="img/elec.png" style="width:100px; height:120px;"/></a>
 		</div>
 		<div class="clear"></div>
 			
@@ -47,16 +47,17 @@
 			<div class="background_black">
 			
 				 <a class="hiddenanchor" id="toregister"></a>
-                    <a class="hiddenanchor" id="tologin"></a>
+                    <a class="hiddenanchor" id="tologin1"></a>
+                    <a class="hiddenanchor" id="tologin2"></a>
                     <a class="hiddenanchor" id="toforgotpw"></a>
                     
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form action="mysuperscript.html" autocomplete="on"> 
+                            <form action="/login" autocomplete="on" method="POST"> 
                                 <h1>로그인</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon1="u" > 아이디(학번) </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="student id"/>
+                                    <input id="username" name="username" required="required" type="text" placeholder="student id" />
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon1="p"> 비밀번호  </label>
@@ -79,7 +80,7 @@
                                 <h1>비밀번호 찾기</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon1="u" > 아이디(학번) </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="student id"/>
+                                    <input id="username" name="username" required="required" type="number" placeholder="student id" />
                                 </p>
                                 <p> 
                                     <label for="email" class="email" data-icon1="u"> 이메일  </label>
@@ -90,7 +91,7 @@
 								</p>
                                 <p class="change_link">
 									
-									<a href="#tologin" class="to_fotgotpw"> 로그인 </a>
+									<a href="#tologin2" class="to_fotgotpw"> 로그인 </a>
 									
 								</p>
                             </form>
@@ -101,15 +102,15 @@
                                 <h1> 회원가입 </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon2="u"></label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="학번을 입력" />
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="number" placeholder="학번을 입력"/>
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon2="u" > </label>
-                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="이름"/> 
+                                    <input id="emailsignup" name="emailsignup" required="required" type="text" placeholder="이름"/> 
                                 </p>
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon2="e"></label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="이메일을 입력"/>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="email" placeholder="이메일을 입력"/>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon2="p"> </label>
@@ -121,14 +122,14 @@
                                 </p>
                                 <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon2="u"> </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="주 사용 언어"/>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="text" placeholder="주 사용 언어"/>
                                 </p>
                                 <p class="signin button"> 
 									<input type="submit" value="Sign up"/> 
 								</p>
                                 <p class="change_link">  
 									
-									<a href="#tologin" class="to_login"> 로그인 </a>
+									<a href="#tologin1" class="to_login"> 로그인 </a>
 								</p>	
                             </form>
                         </div>						
@@ -137,4 +138,5 @@
 		</section>
 	</div>
 </body>
+
 </html>
