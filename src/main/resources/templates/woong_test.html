@@ -1,0 +1,22 @@
+
+<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+<script src="js/common.js">
+
+</script>
+
+<script>
+
+	$(document).ready(function(){
+		
+		$('#abc').click(function(){
+			alert(1)
+			requestJsonData("/loginApp","POST",{username:"201132006",password:"123"})
+		})
+	})
+	
+</script>
+
+<body>
+
+	<div id="abc">fdfdf</div>
+</body>

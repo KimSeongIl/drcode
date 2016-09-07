@@ -1,59 +1,179 @@
 ﻿<!doctype html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="webjars/jquery/2.0.3/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<meta charset="utf-8" />
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var userData = [[${user}]];
+var professorList = [[${professor}]];
+var departmentList = [[${departmentList}]];
 
 
+/*]]>*/
+ 
+</script>
+
+
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="js/splitter.js"></script>
+
+
+
+<script src="js/sockjs-0.3.4.js"></script>
+<script src="js/stomp.js"></script>
+<script src="js/main.js" ></script>
+
+
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/main.css" />
 
-<script>
-	$(document).ready(function(){
-		
-		$('#codeContainer').css('height',$('body').outerHeight()-$('#header').outerHeight())
-		  $("#console").resizable({ handles: 'n' }).bind("resize", function (e, ui) {
-	            $(this).css("top", "auto");
-	        });
-	})
+<style>
+.bgLayer{
+	position:absolute;
+	background-color:gray;
+	top:0;
+	opacity:0.5;
+	z-index:900;
+}
+#submitModal{
+	z-index:901;
+	background-color:white;
+	border-radius:5px;
+	min-width:500px;
+	min-height:300px;
+}
+</style>
 
-</script>
 </head>
 
 <body>
 	<div id="wrap">
+		
 		<div id="header">
 			<div id="lang">
 				언어
+				<ul>
+					<li>C</li>
+					<li>JAVA</li>
+					<li>HTML</li>
+					<li>MYSQL</li>
+				</ul>
 			</div>
 			<div id="theme">
 				테마
+				<ul>
+					<li>default</li>
+					<li>eclipse</li>
+					<li>monokai</li>
+					<li>twilight</li>
+				</ul>
 			</div>
 			<div id="font">
 				폰트
+				<ul>
+					<li>12px</li>
+					<li>13px</li>
+					<li>14px</li>
+					<li>15px</li>
+					<li>16px</li>
+					<li>20px</li>
+					<li>24px</li>
+					<li>32px</li>
+					<li>48px</li>
+				</ul>
+			</div>
+			
+			
+			<div id="run">
+			<i class="fa fa-play-circle" style="color:darkgreen"></i> 실행
+			</div>
+			<div id="stop">
+				<i class="fa fa-stop" style="color:crimson"></i> 중지
+			</div>
+			<div id="download"><i class="fa fa-save" style="color:purple"></i> 저장</div>
+			
+			<div id="connect">연결</div>
+			<div id="disconnect">연결 끊기</div>
+			<div id="codeSubmit" onClick="javascript:popupOpen()">
+			<i class="fa fa-share-square-o"></i> 제출</div>
+			<div id="manage" style="float:right;">
+				<span><img id="settingImg" src="img/setting.png" /></span>정보
+				<ul>
+					<li onclick="location.href='/myPage.html'">마이페이지</li>
+					<li onclick="location.href='/logout'">로그아웃</li>
+				</ul>
 			</div>
 		</div>
 		
 		<div id="codeContainer">
 		
-			<div id="code">
-				dd
+			<div id="editor">
+				
 			</div>
 		
 			<div id="console" >
-				dddd
+				
+				
 			</div>
+			
+			
+			
+		</div>
+		
+		<div id="inputArea">
+				<textarea th:text="${abc}"></textarea>
 		</div>
 		
 	
 	</div>
 	
+	
+	
+	
+	<form action="/filedownload" method="POST" id="downloadform">
+	<input type="hidden" name="content" id="content"/>
+	<input type="hidden" name="language" id="language"/>
+	</form>
+	
+	
+	<div id="submitModal" style="position:absolute; display:none; padding:20px">
+		<div class="modalHeader" style="margin:10px;">
+		<h4 style="float:left; font-weight:bold;">팝업레이어</h4>
+		<a style="float:right" href="#" close="close" onClick="javascript:popupOpen()">X</a>
+		</div>
+		<div style="clear:both"></div>
+		
+		
+		<div class="modalBody" style="text-align:center; margin-top:30px;">
+			<li>
+				<strong>이름</strong>
+				<span id="name">홍길동</span>
+			</li>
+		</div>
+	</div>
+
+<script src="js/ace.js"></script>
+<script>
+var editor = ace.edit("editor");
+//editor.setTheme("ace/theme/twilight");
+//editor.setTheme("ace/theme/sqlserver");
+
+//editor.session.setMode("ace/mode/javascript");
+//editor.session.setMode("ace/mode/c_cpp");
+//editor.session.setMode("ace/mode/html");
+//editor.session.setMode("ace/mode/java");
+//document.getElementById('editor').style.fontSize='16px';
+editor.setOption("showPrintMargin",false);
 
 
+</script>
 </body>
 
 
 
 </html>
+

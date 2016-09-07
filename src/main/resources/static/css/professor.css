@@ -1,0 +1,21 @@
+.professor_content {
+    padding-top:80px;
+	background:white;
+	width:1040px;
+	min-height:500px;
+    margin:0 auto;
+    border:1px solid #e5e5e5;
+}
+
+.professor_button {
+	margin-bottom:60px;
+	margin-right:117px;
+}
+
+.deleteSubject {
+	margin-left:10px;
+}
+
+.deleteAssignment {
+	margin-left:10px;
+}

@@ -5,6 +5,7 @@ package kr.ac.skhu.drcode.assignmentUser;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,12 +53,13 @@ public class AssignmentUserEntity implements Serializable{
 	private UserEntity user;
 	
 	@Column(name = "score")
-	private double score;
-
+	private Integer score;
 	
-
-
+	@Column(name = "code")
+	private String code;
 	
+	@Column(name = "submit_time")
+	private Date submitTime;
 	
 	
 	

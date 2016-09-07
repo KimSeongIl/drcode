@@ -1,0 +1,114 @@
+	<!doctype html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+<script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+<script src="js/mypage.js"></script>
+
+
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/animate-custom.css" />
+<link rel="shortcut icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/myPage.css" />
+
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var auth = [[${auth}]];
+
+
+/*]]>*/
+ 
+</script>
+
+</head>
+
+<body>
+	<div class="page-wrapper">
+
+		<!-- Codrops top bar -->
+
+
+		<header>
+			<div id="hleft">
+				<img src="img/logo.png" style="width:270px; height:90px;" />
+			</div>
+			<!--  <div id="hcenter">
+				<img class="gear" src="img/gear2.gif" />
+				<h1>
+					This is your <strong>workspace</strong>
+				</h1>
+				<h2>Here is a web-based Lab page Dr.code</h2>
+
+				<div class="support-note">
+					<span class="note-ie">Sorry, only modern browsers.</span>
+				</div>
+			</div>-->
+<div th:if="${auth}=='ROLE_STUDENT'" th:include="menu :: student_menu" ></div>
+<div th:if="${auth}=='ROLE_PROFESSOR'" th:include="menu :: professor_menu" ></div>
+
+
+
+			<div class="clear"></div>
+
+		</header>
+		<div class="mypage_main">
+		<h1> MY PAGE</h1>
+		</div>
+
+		<section class="mypage">
+			
+			<div class="mypage_content"> 
+			
+		<form id="mypgform" class="form-inline">
+			<table class="mypage_table">
+			
+			<tr>
+				<th>학번</th>
+				<td><input id="userNumber" class="form-control" type="text" placeholder="학 번" readonly="" /></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input id="userName" class="form-control" type="text" placeholder="이 름"/></td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>	
+				<td><input id="password" class="form-control" maxlength="20" type="password" placeholder="비밀번호" /></td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인</th>
+				<td><input id="password_confirm" class="form-control" maxlength="20" type="password" placeholder="비밀번호 확인"/></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><input id="email" type="text" class="form-control" required="required" placeholder="이 메 일"/></td>
+			</tr>
+			
+	
+			</table>
+			<input class="mypage_button" type="submit" value="수 정" />	
+		</form>
+		
+				</div>
+		</section>
+		
+			
+		
+		
+		<div class="footer">
+		<h4>© Copyright 2016. All Rights Reserved.</h4>
+		</div>
+	</div>
+
+	<!--  <div class="wrap-loding">
+	<div> <img src="img/.gif" /></div>
+	</div>
+	-->
+</body>
+
+</html>

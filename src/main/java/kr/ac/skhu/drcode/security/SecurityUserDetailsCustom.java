@@ -47,7 +47,6 @@ public class SecurityUserDetailsCustom implements UserDetails,CredentialsContain
       
       this.id=drUser.getId();//pk
       this.username=drUser.getUserNumber();
-      System.out.println("detailServiceCustom User Name : "+username);
       this.password=drUser.getPassword();
       this.authorities=getAuthorities(drUser);
       this.accountNonExpired=true;

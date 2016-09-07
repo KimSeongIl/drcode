@@ -1,0 +1,23 @@
+<div id="editor">
+				
+</div>
+		
+<div id="console" >
+		
+</div>
+
+
+<script src="js/c_java.js"></script>
+<script>
+var editor = ace.edit("editor");
+editor.$blockScrolling = Infinity;
+editor.setTheme("ace/theme/"+themeInit);
+editor.session.setMode("ace/mode/java");
+document.getElementById('editor').style.fontSize=fontInit;
+editor.setOption("showPrintMargin",false);
+
+$("#codeContainer").splitter({splitHorizontal:true,A:$('#editor'),B:$('#console'),closeableto:100});
+
+var javaDefault="public class Main {\n\n\tpublic static void main(String args[]) {\n\n\n\n\n\n\n\n\n\n\n\t }\n}";
+editor.setValue(javaDefault);
+</script>

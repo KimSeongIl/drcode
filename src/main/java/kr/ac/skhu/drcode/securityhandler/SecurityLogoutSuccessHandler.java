@@ -17,8 +17,11 @@ public class SecurityLogoutSuccessHandler implements LogoutSuccessHandler{
 			Authentication authentication) throws IOException{
 		
 		
-	
+		request.getSession().invalidate();
+		response.sendRedirect("/");
 		
+		
+	
 	}
 
 }

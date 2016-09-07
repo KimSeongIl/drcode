@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var userData = [[${user}]];
+
+
+/*]]>*/
+ 
+</script>
+
+<link rel="stylesheet"
+	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
+
+<script src="js/common.js"></script>
+<script src="js/professor_main.js"></script>
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/animate-custom.css" />
+<link rel="shortcut icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/myPage.css" />
+<link rel="stylesheet" href="css/professor.css" />
+
+</head>
+
+<body>
+	<div class="page-wrapper">
+
+		<!-- Codrops top bar -->
+
+
+		<header>
+			<div id="hleft">
+				<img src="img/logo.png" style="width: 270px; height: 90px;" />
+			</div>
+
+			<div th:include="menu :: professor_menu"></div>
+
+			<div class="clear"></div>
+
+		</header>
+
+		<div class="mypage_main">
+		<h1>
+				<span>개설 강좌</span>
+			</h1>
+			</div>
+		<section class="mypage btn-toolbar">
+		<div class="professor_content">
+			<div class="professor_button"> 
+			<button type="button" class="deleteSubject btn btn-default pull-right" data-toggle="modal">강좌삭제</button>
+			<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">강좌추가</button>
+		</div>	
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">강좌추가</h4>
+						</div>
+
+						<div class="modal-body">
+
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1">과목코드</span> <input
+									type="text" class="form-control" placeholder="과목코드"
+									required="required" name="subjectCode" id="subjectCode"
+									aria-describedby="sizing-addon1" />
+							</div>
+
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1" style="padding:6px 21px;">과 목 명</span> <input
+									type="text" class="form-control" placeholder="과목명"
+									required="required" name="subjectName" id="subjectName"
+									aria-describedby="sizing-addon1" />
+							</div>
+
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-primary" id="insertSubject">추가</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<div id="subjectList" style="width: 800px; margin: 0 auto;"></div>
+</div>
+
+		</section>
+
+		<div class="footer">
+			<h4>© Copyright 2016. All Rights Reserved.</h4>
+		</div>
+	</div>
+
+
+</body>
+</html>

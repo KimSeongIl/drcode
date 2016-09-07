@@ -31,10 +31,13 @@ import javax.persistence.Table;
 import kr.ac.skhu.drcode.assignment.AssignmentEntity;
 import kr.ac.skhu.drcode.user.UserEntity;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "subject", catalog = "drcode")
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id" ,scope=SubjectEntity.class)
@@ -73,9 +76,5 @@ public class SubjectEntity implements Serializable{
 		this.assignments.add(assignment);
 	}
 
-	
-
-	
-	
 	
 }

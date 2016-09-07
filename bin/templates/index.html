@@ -4,9 +4,15 @@
 <link rel="stylesheet"
 	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
 <script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+
 
 <link rel="stylesheet" href="css/index.css" />
 <link rel="stylesheet" href="css/animate-custom.css" />
+<link rel="shortcut icon" href="img/favicon.ico" />
+
+
 
 
 </head>
@@ -19,10 +25,11 @@
 		
 		<header>
 		<div id="hleft">
-		<img src="img/dr.png" style="width:200px; height:90px;"/>
+		<img src="img/logo.png" style="width:270px; height:90px;"/>
 		</div>
+		<!-- 
 		<div id="hcenter">
-			<img src = "img/gear.gif"/>
+			<img class="gear" src="img/gear2.gif"/>
 				<h1>
 					This is your <strong>workspace</strong>
 				</h1>					
@@ -32,12 +39,40 @@
 					<span class="note-ie">Sorry, only modern browsers.</span>
 				</div>
 		</div>
+		 -->
 		<div id="hright">
-			<a href="http://www.skhu.ac.kr" target="_blank"><img src="img/skhu.png" style="width:100px; height:120px;"/></a>
-			<a href="http://ecareer.skhu.ac.kr" target="_blank"><img src="img/ecareer.png" style="width:100px; height:120px;"/></a>
-			<a href="http://forest.skhu.ac.kr" target="_blank"><img src="img/forest.png" style="width:100px; height:120px;"/></a>
-			<a href="http://library.skhu.ac.kr" target="_blank"><img src="img/lib.png" style="width:100px; height:120px;"/></a>
-			<a href="http://com.skhu.ac.kr" target="_blank"><img src="img/elec.png" style="width:100px; height:120px;"/></a>
+			<ul>
+				<li>
+					<a href="http://www.skhu.ac.kr" target="_blank">		
+						<img src="img/skhu.png" class="link" onmouseover="this.src='/img/skhu_h.png'" onmouseout="this.src='/img/skhu.png'"/><br>
+						<span onmouseover="$(this).parent().find('img').attr('src','/img/skhu_h.png')" onmouseout="$(this).parent().find('img').attr('src','/img/skhu.png')">성공회대</span>
+					</a>
+				</li>
+				<li>
+					<a href="http://ecareer.skhu.ac.kr" target="_blank">
+						<img src="img/ecareer.png" class="link" onmouseover="this.src='/img/ecareer_h.png'" onmouseout="this.src='/img/ecareer.png'"/><br>
+						<span onmouseover="$(this).parent().find('img').attr('src','/img/ecareer_h.png')" onmouseout="$(this).parent().find('img').attr('src','/img/ecareer.png')">이커리어</span>
+					</a>
+				</li>
+				<li>
+					<a href="http://forest.skhu.ac.kr" target="_blank">
+						<img src="img/forest.png" class="link" onmouseover="this.src='/img/forest_h.png'" onmouseout="this.src='/img/forest.png'"/><br>
+						<span onmouseover="$(this).parent().find('img').attr('src','/img/forest_h.png')" onmouseout="$(this).parent().find('img').attr('src','/img/forest.png')">종합정보시스템</span>
+					</a>
+				</li>
+				<li>
+					<a href="http://library.skhu.ac.kr" target="_blank">
+						<img src="img/lib.png" class="link" onmouseover="this.src='/img/lib_h.png'" onmouseout="this.src='/img/lib.png'"/><br>
+						<span onmouseover="$(this).parent().find('img').attr('src','/img/lib_h.png')" onmouseout="$(this).parent().find('img').attr('src','/img/lib.png')">중앙도서관</span>	
+					</a>
+				</li>
+				<li>
+					<a href="http://com.skhu.ac.kr" target="_blank">	
+						<img src="img/elec.png" class="link" onmouseover="this.src='/img/elec_h.png'" onmouseout="this.src='/img/elec.png'"/><br>
+						<span onmouseover="$(this).parent().find('img').attr('src','/img/elec_h.png')" onmouseout="$(this).parent().find('img').attr('src','/img/elec.png')">전자계산소</span>
+					</a>
+				</li>
+			</ul>
 		</div>
 		<div class="clear"></div>
 			
@@ -53,7 +88,7 @@
                     
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form action="/login" autocomplete="on" method="POST"> 
+                            <form action="/login" method="POST"> 
                                 <h1>로그인</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon1="u" > 아이디(학번) </label>
@@ -76,19 +111,19 @@
                         </div>
                         
                         <div id="forgotpw" class="animate form">
-                            <form action="mysuperscript.php" autocomplete="on"> 
+                            <form id="findPasswordForm"> 
                                 <h1>비밀번호 찾기</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon1="u" > 아이디(학번) </label>
-                                    <input id="username" name="username" required="required" type="number" placeholder="student id" />
+                                    <input id="findPswdusername" name="username" required="required" type="number" placeholder="student id" />
                                 </p>
                                 <p> 
                                     <label for="email" class="email" data-icon1="u"> 이메일  </label>
-                                    <input id="email" name="email" required="required" type="email" placeholder="your e-mail" /> 
+                                    <input id="findPswdemail" name="email" required="required" type="email" placeholder="your e-mail" /> 
                                 </p>
                                 <p class="login button"> 
                                     <input type="submit" value="확인" /> 
-								</p>
+								</p>	
                                 <p class="change_link">
 									
 									<a href="#tologin2" class="to_fotgotpw"> 로그인 </a>
@@ -98,34 +133,40 @@
                         </div>                     
 
                         <div id="register" class="animate form">
-                            <form action="mysuperscript.php" autocomplete="on"> 
+                            <form id="signUpForm"> 
                                 <h1> 회원가입 </h1> 
                                 <p> 
-                                    <label for="usernamesignup" class="uname" data-icon2="u"></label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="number" placeholder="학번을 입력"/>
+                                    <label for="usernumsignup" class="unum" data-icon2="u"></label>
+                                    <input id="usernumsignup" pattern="[0-9]{1,10}" title="(10자리 이하 숫자)" name="usernumsignup" required="required" type="text" placeholder="학번 입력"/>
                                 </p>
                                 <p> 
-                                    <label for="emailsignup" class="youmail" data-icon2="u" > </label>
-                                    <input id="emailsignup" name="emailsignup" required="required" type="text" placeholder="이름"/> 
+                                    <label for="usernamesignup" class="youname" data-icon2="u" > </label>
+                                    <input id="usernamesignup" pattern="[가-힣a-zA-Z]{1,10}" title="10자리 이하 (한글),(영문)" name="emailsignup" required="required" type="text" placeholder="이름"/> 
                                 </p>
                                 <p> 
-                                    <label for="passwordsignup" class="youpasswd" data-icon2="e"></label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="email" placeholder="이메일을 입력"/>
+                                    <label for="departmentsignup" class="youdepartment" data-icon2="u"> </label>
+                                    
+                                    <select id="departmentsignup" required>
+                                    	<option value="">학과 </option>
+                                    </select>
+                                    
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon2="e"></label>
+                                    <input id="emailsignup" name="passwordsignup" required="required" type="email" placeholder="이메일 입력"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon2="p"> </label>
+                                    <input id="passwordsignup" maxlength="20" name="passwordsignup" required="required" type="password" placeholder="비밀번호 입력"/>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon2="p"> </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="비밀번호을 입력"/>
+                                    <input id="passwordsignup_confirm" maxlength="20" name="passwordsignup_confirm" required="required" type="password" placeholder="비밀번호 확인"/>
                                 </p>
-                                <p> 
-                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon2="p"> </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="비밀번호 확인"/>
-                                </p>
-                                <p> 
-                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon2="u"> </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="text" placeholder="주 사용 언어"/>
-                                </p>
+                                
+                                
                                 <p class="signin button"> 
-									<input type="submit" value="Sign up"/> 
+									<input onclick="return passwdCheck();" type="submit" value="Sign up"/> 
 								</p>
                                 <p class="change_link">  
 									
@@ -136,7 +177,15 @@
                     </div>
 			</div>
 		</section>
+		<div class="footer">
+		<h4>© Copyright 2016. All Rights Reserved.</h4>
+		</div>
 	</div>
+	
+	<!--  <div class="wrap-loding">
+	<div> <img src="img/.gif" /></div>
+	</div>
+	-->
 </body>
 
 </html>

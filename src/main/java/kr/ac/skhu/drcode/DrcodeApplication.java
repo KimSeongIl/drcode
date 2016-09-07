@@ -11,6 +11,7 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+
 @EnableWebMvc
 @EnableConfigurationProperties
 @EnableAutoConfiguration
@@ -22,10 +23,10 @@ public class DrcodeApplication extends SpringBootServletInitializer{
 	}
 
 	@Bean(initMethod = "init")
-	public InitDataLoader initDataLoader(){
+	public InitDataLoader initDataLoader(){	
 		return new InitDataLoader();
 	} 
- 
+
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

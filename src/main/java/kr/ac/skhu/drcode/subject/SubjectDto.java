@@ -19,7 +19,7 @@ public class SubjectDto {
 	private int id;
 	private String subjectCode;
 	private String subjectName;
-	private UserDto professorId;
+	private int professorId;
 	//private Set<AssignmentDto> assignment;
 	
 	

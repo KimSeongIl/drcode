@@ -32,13 +32,16 @@ public class SecurityUserDetailServiceCustom implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		
-		
-		UserDto drUser = userService.getUserByUserNumber(username);
-		System.out.println(drUser);
-		System.out.println("권한:"+drUser.getAuth());
-		
-		
+		UserDto drUser=null;
+		try{
+			
+			drUser = userService.getUserByUserNumber(username);	
+			
+			
+			
+		}catch(Exception e){
+			throw new UsernameNotFoundException("dd");
+		}
 		//status 미사용시
 		//SecurityUserDetailsCustom user = new SecurityUserDetailsCustom(drUser);
 		SecurityUserDetailsCustom user = new SecurityUserDetailsCustom(drUser,0);

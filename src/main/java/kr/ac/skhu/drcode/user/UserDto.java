@@ -15,9 +15,15 @@ public class UserDto {
 	
 	private int id;
 	private String userNumber;
+	private String userName;
 	private String password;
 	private String email;
 	private String auth;
+	private int departmentId;
+	
+	private String language;
+	private String theme;
+	private String font;
 	//private Set<AssignmentUserDto> assignmentUsers;
 	//private Set<SubjectDto> subjects;
 	

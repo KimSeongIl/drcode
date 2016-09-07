@@ -30,37 +30,17 @@ public class SecuritySuccessHandler  implements AuthenticationSuccessHandler{
       
       List<GrantedAuthority> grantList = (List<GrantedAuthority>)authentication.getAuthorities();
      
-      System.out.println(grantList);
-      System.out.println(((SecurityUserDetailsCustom)authentication.getPrincipal()).getId());
-      System.out.println((List<GrantedAuthority>)authentication.getAuthorities());
-      
-      ObjectMapper mapper = new ObjectMapper();
-      Map<String,Object> json = new HashMap<String,Object>();
-      json.put("userId",((SecurityUserDetailsCustom)authentication.getPrincipal()).getId());
-      json.put("username", authentication.getName());
-      json.put("userRoles", grantList.toArray());
-      
-      String jsonstr =mapper.writeValueAsString(JsonUtil.putSuccessJsonContainer(json));
-      
-      response.setContentType("application/json");
-      response.setCharacterEncoding("UTF-8");
-      response.getWriter().write(jsonstr);
-      
-      response.sendRedirect("/user/"+authentication.getName());
-      //mysuperscript.html
-      
-      /*
       int authNum=checkAuthority(grantList);         
       switch(authNum){
       case 1: 
-         response.sendRedirect("/prof");
+         response.sendRedirect("main.html");
          break;
       case 2:
-         response.sendRedirect("/prof");
+         response.sendRedirect("/professor_main.html");
          break;
       case 3:
-         response.sendRedirect("/admin");
-      }      */
+         response.sendRedirect("/admin_main.html");
+      }      
    }
    
    

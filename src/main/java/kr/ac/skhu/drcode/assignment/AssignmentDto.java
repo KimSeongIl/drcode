@@ -23,10 +23,16 @@ public class AssignmentDto {
 	private String assignmentName;
 	private String content;
 	private Date limitTime;
-	private Date retentionTime;
+	private Date extensionTime;
 	private String answer;
 	private Date createdAt;
 	private SubjectDto subject;
+	private int subjectId;
+	private String subjectName;
+	
+	private String limitTimeStr;
+	private String extensionTimeStr;
+	private String createdAtStr;
 	
 	//private Set<AssignmentUserDto> assignmentUsers;
 

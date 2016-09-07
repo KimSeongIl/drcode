@@ -51,6 +51,8 @@ dependencies {
 	// db
 	compile 'mysql:mysql-connector-java:5.1.6'
 	compile 'commons-dbcp:commons-dbcp:1.2.2'
+	
+	compile fileTree(dir: 'libs', include: '*.jar')
 
 	// query dsl
 	compile 'com.mysema.querydsl:querydsl-jpa:3.6.9'
@@ -61,7 +63,7 @@ dependencies {
 	compile 'javax.el:javax.el-api:2.2.4'
 
 	// dozer
-	compile 'net.sf.dozer:dozer:5.5.1'
+	// compile 'net.sf.dozer:dozer:5.5.1'
 	
 	// lombok
 	compile 'org.projectlombok:lombok:1.16.4'
@@ -85,9 +87,21 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     runtime('com.h2database:h2')
     
+    //java-mail
+   	compile 'org.springframework.boot:spring-boot-starter-mail:1.2.0.RELEASE'
+    compile 'javax.mail:mail:1.4'
+    
+    
     //websocket
     compile("org.springframework.boot:spring-boot-starter-websocket")
     compile("org.springframework:spring-messaging")
+    compile("org.springframework.security:spring-security-messaging")
+    
+    //swagger
+    compile("io.springfox:springfox-swagger2:2.2.2")
+    compile("io.springfox:springfox-swagger-ui:2.2.2")
+    
+    
     
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

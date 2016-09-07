@@ -1,0 +1,28 @@
+.student_content {
+    padding-top:80px;
+	background:white;
+	width:1040px;
+	min-height:500px;
+    margin:0 auto;
+    border:1px solid #e5e5e5;
+}
+
+
+.tab {
+	padding-left:120px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+	background-color:darkslategrey;
+}
+.nav-pills {
+	display:inline;
+	font-weight:600;
+}
+
+.tab {
+	margin-bottom:50px;
+}
+
+.tab li {
+	cursor:pointer;
+}

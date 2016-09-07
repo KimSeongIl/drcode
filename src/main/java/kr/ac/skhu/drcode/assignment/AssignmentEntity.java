@@ -53,8 +53,8 @@ public class AssignmentEntity implements Serializable{
 	private Date limitTime;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "retention_time")
-	private Date retentionTime;
+	@Column(name = "extension_time")
+	private Date extensionTime;
 	
 	@Column(name = "answer")
 	private String answer;

@@ -1,0 +1,149 @@
+<style>
+fieldset input {
+	display: inline-block;
+}
+
+#dialog-form form {
+	text-align: center;
+}
+
+.dialog_input {
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+#dialog-form {
+	text-align: center;
+}
+
+.dialog_input label {
+	width: 70px;
+}
+
+.mysql_login {
+	margin-top: 10px;
+	margin-bottom: 25px;
+}
+</style>
+
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+
+
+
+<div id="editor"></div>
+
+<div id="console" style="background-color: white; color: black;">
+
+</div>
+
+
+<div id="dialog-form" title="Drcode Database">
+	<h2 class="mysql_login">서버 연결</h2>
+
+	<form class="db_form">
+		<fieldset>
+			<div class="dialog_input">
+				<label for="url">URL</label><input type="text" name="URL"
+					required="required" id="url"
+					class="text ui-widget-content ui-corner-all">
+			</div>
+			<div class="dialog_input">
+				<label for="dbname">DbName</label> <input type="text" name="dbname"
+					id="dbname" required="required"
+					class="text ui-widget-content ui-corner-all">
+			</div>
+			<div class="dialog_input">
+				<label for="username">UserName</label> <input type="text" required="required"
+					name="username" id="username" class="text ui-widget-content ui-corner-all">
+			</div>
+			<div class="dialog_input">
+				<label for="password">Password</label> <input type="password"
+					required="required" name="password" id="password"
+					class="text ui-widget-content ui-corner-all">
+			</div>
+			<!-- Allow form submission with keyboard without duplicating the dialog button 
+			<input type="submit" tabindex="-1"
+				style="position: absolute; top: -1000px">-->
+		</fieldset>
+	</form>
+</div>
+
+
+
+<script src="js/c_java.js"></script>
+<script>
+	var editor = ace.edit("editor");
+	editor.$blockScrolling = Infinity;
+	editor.setTheme("ace/theme/" + themeInit);
+	editor.session.setMode("ace/mode/sql");
+	document.getElementById('editor').style.fontSize = fontInit;
+	editor.setOption("showPrintMargin", false);
+
+	$("#codeContainer").splitter({
+		splitHorizontal : true,
+		A : $('#editor'),
+		B : $('#console'),
+		closeableto : 100
+	});
+
+	var databaseDefault = "select * from user;";
+	editor.setValue(databaseDefault);
+</script>
+
+
+<script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script>
+	var jq = $.noConflict(true);
+</script>
+
+<script>
+	var dialog;
+	
+	jq(document).ready(function() {
+		
+		if (dbconnectInit == false) {
+			$('#connect').show();
+			$('#disconnect').hide();
+		} else {
+			$('#connect').hide();
+			$('#disconnect').show();
+		}
+
+		if(dialog !=null){
+			dialog.remove();
+		}
+		
+		dialog = jq("#dialog-form").dialog({
+			resizable : false,
+			autoOpen : false,
+			height : 350,
+			width : 400,
+			modal : true,
+			open: function(){
+				$('.db_form')[0].reset();
+				
+			},
+			buttons : {
+				'연결': databaseLogin,
+				'취소' : function() {
+					dialog.dialog('close');
+					
+				}
+				
+			},
+			close : function() {
+
+				
+			}
+		});
+
+		requestJsonData('/sessionConfirm', 'POST', {
+
+		}, sessionSuccess)
+
+		
+	})
+</script>
+
+

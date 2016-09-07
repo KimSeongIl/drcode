@@ -1,0 +1,45 @@
+
+
+<div th:fragment="student_menu">
+	<nav id="menu">
+		<ul class="nav-main" id="mainMenu">
+
+			<li><a class="dropdown" href="/logout"><span class="tut-lib">
+						로그아웃</span></a></li>
+			<li><a class="dropdown" href="/myPage.html"><i
+					class="fa fa-eraser"></i> 정보 수정</a></li>
+			<li><a class="dropdown" href="#" target="_blank"><i
+					class="fa fa-send"></i> 문의사항</a></li>
+			<li><a class="dropdown" href="/student_assignment_list.html"><i
+					class="fa fa-file-text-o"></i> 과제 내역</a></li>
+			<li><a class="dropdown" href="/main.html"><i
+					class="fa fa-codepen"></i><span class="tut-lib"> 개발실 </span></a></li>
+		</ul>
+	</nav>
+</div>
+
+
+<div th:fragment="professor_menu">
+	<nav id="menu">
+		<ul class="nav-main" id="mainMenu">
+			<li><a class="dropdown" href="/logout"><span class="tut-lib">
+						로그아웃</span></a></li>
+			<li><a class="dropdown" href="/myPage.html"><i
+					class="fa fa-eraser"></i> 정보 수정 </a></li>
+			<li><a class="dropdown" href="/professor_main.html"><i
+			class="fa fa-file-text-o"></i> 강의 목록</a></li>
+		</ul>
+	</nav>
+
+</div>
+
+<div th:fragment="admin_menu">
+	<nav id="menu">
+		<ul class="nav-main" id="mainMenu">
+			<li><a class="dropdown" href="/logout"><span class="tut-lib">
+						로그아웃</span></a></li>
+			
+		</ul>
+	</nav>
+
+</div>

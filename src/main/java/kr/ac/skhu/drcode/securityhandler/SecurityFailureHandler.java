@@ -19,6 +19,10 @@ public class SecurityFailureHandler implements AuthenticationFailureHandler{
 		System.out.println("SecurityFailureHandler");
 		
 		
+		
+		response.sendRedirect("loginFail.html");
+		//return "redirect:loginFail.html";  해보기
+		
 	}
 
 }

@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+<script src="webjars/jquery/2.0.3/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+
+
+<script src="js/admin.js"></script>
+
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/animate-custom.css" />
+<link rel="shortcut icon" href="img/favicon.ico" />
+<link rel="stylesheet" href="css/myPage.css" />
+<link rel="stylesheet" href="css/admin.css" />
+
+
+
+</head>
+
+<body>
+	<div class="page-wrapper">
+
+		<!-- Codrops top bar -->
+
+
+		<header>
+			<div id="hleft">
+				<img src="img/logo.png" style="width: 270px; height: 90px;" />
+			</div>
+			<!--  <div id="hcenter">
+				<img class="gear" src="img/gear2.gif" />
+				<h1>
+					This is your <strong>workspace</strong>
+				</h1>
+				<h2>Here is a web-based Lab page Dr.code</h2>
+
+				<div class="support-note">
+					<span class="note-ie">Sorry, only modern browsers.</span>
+				</div>
+			</div>-->
+
+			<div th:include="menu :: admin_menu"></div>
+
+			<div class="clear"></div>
+
+		</header>
+		<div class="mypage_main">
+			<h1> 회원 관리 </h1>
+		</div>
+
+		<section class="mypage">
+		<div class="admin_content">
+		<div class="admin_tab">
+			<ul class="nav nav-pills">
+				<li class="active" data="student"><a href="#">학생</a></li>
+				<li data="professor"><a href="#">교수</a></li>
+
+			</ul>
+
+			<!-- 사용자추가 Modal 버튼 -->
+			<button type="button" class="insertUser btn btn-primary btn-lg"
+				data-toggle="modal" data-target="#myModal" style="background:darkslategrey;">사용자 추가</button>
+</div>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">사용자 추가</h4>
+						</div>
+						<div class="modal-body">
+
+
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1" style="padding:10px 21px;">아 이 디</span> <input
+									type="text" class="form-control" placeholder="학번" required="required" 
+									name="userNmuber" id="insertuserNumber" aria-describedby="sizing-addon1" />
+							</div>
+
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1" style="padding:10px 32px;">이 름</span> <input
+									type="text" class="form-control" placeholder="이름" required="required"  pattern="[가-힣a-zA-Z]{1,10}" title="10자리 이하 (한글),(영문)"
+									name="UserName" id="insertuserName" aria-describedby="sizing-addon1" />
+							</div>
+
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1">비밀번호</span> <input
+									type="password" class="form-control" placeholder="비밀번호" required="required"
+									name="password" id="insertpassword" aria-describedby="sizing-addon1" />
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1" style="padding:10px 21px;">이 메 일</span> <input
+									type="text" class="form-control" required="required" placeholder="이메일" name='email' id='insertemail'
+									aria-describedby="sizing-addon1" />
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1" style="padding:10px 32px;">분  류</span><select
+									class='form-control' id='insertauth' name='auth'>
+									<option value='student'>학생</option>
+									<option value='professor'>교수</option>
+								</select>
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon" id="sizing-addon1" style="padding:10px 32px;">학 과</span><select
+									class='form-control' id='insertdepartment' name='department'>
+									<option value=''>학과</option>
+								
+								</select>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-primary" id="insertUser">추가</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="table" class="admin_table">
+
+				<!--  유저리스트가 출력됩니다. -->
+
+
+
+
+
+			</div>
+
+</div>
+		</section>
+
+
+
+
+		<div class="footer">
+			<h4>© Copyright 2016. All Rights Reserved.</h4>
+		</div>
+	</div>
+
+	<!--  <div class="wrap-loding">
+	<div> <img src="img/.gif" /></div>
+	</div>
+	-->
+</body>
+
+</html>

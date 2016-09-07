@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var id = [[${id}]];
+
+
+/*]]>*/
+ 
+</script>
+
+<link rel="stylesheet" href="/webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+
+<script src="/webjars/jquery/2.0.3/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
+
+<script src="/js/common.js"></script>
+<script src="/js/professor_assignment_userList.js"></script>
+
+
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/animate-custom.css" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+<link rel="stylesheet" href="/css/myPage.css" />
+<link rel="stylesheet" href="css/professor.css" />
+
+</head>
+
+<body>
+	<div class="page-wrapper">
+
+		<!-- Codrops top bar -->
+
+
+		<header>
+			<div id="hleft">
+				<img src="/img/logo.png" style="width:270px; height:90px;" />
+			</div>
+
+
+			<div th:include="menu :: professor_menu"></div>
+
+			<div class="clear"></div>
+
+		</header>
+		
+		<div class="mypage_main"><h1><span>제출자 명단</span></h1>	</div>
+		
+		<section class="mypage">
+		<div class="professor_content">
+				
+			
+		
+			
+			<div id="assignmentList" style="width: 800px; margin: 0 auto;">
+			
+			</div>		
+		
+			
+		</div>
+		</section>
+		
+		<div class="footer">
+		<h4>© Copyright 2016. All Rights Reserved.</h4>
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<style>
+html,body{
+	width:100%;
+}
+#codeContainer{
+	width:100%;overflow:hidden;
+	border-bottom:1px solid #dedede;
+}
+#verticalContainer{
+	
+}
+#editor,#console{
+
+border:1px solid #dedede;
+height:100%;
+overflow:auto;
+
+
+}
+#console{
+	background-color:inherit;
+}
+
+#console iframe{
+	border:0px;
+	width:99%;
+	height:99%;
+}
+
+.jqx-fill-state-normal{
+	
+	background:#9cbdff !important;
+}
+
+.jqx-fill-state-pressed{
+	background:#317BE7 !important;
+}
+
+
+</style>
+<div id="verticalContainer" style="width:100%;height:100%;">
+
+<div id="editor">
+		
+				
+</div>
+		
+<div id="console" >
+	
+				
+</div>
+</div>
+<link rel="stylesheet" href="css/jqx.base.css" type="text/css" />
+<script type="text/javascript" src="js/jqxcore.js"></script>
+    <script type="text/javascript" src="js/jqxsplitter.js"></script>
+    <script type="text/javascript" src="js/jqxbuttons.js"></script>
+    <script type="text/javascript" src="js/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="js/jqxpanel.js"></script>
+<script src="js/c_java.js"></script>
+<script>
+var editor = ace.edit("editor");
+$(document).ready(function(){
+	
+	
+	editor.setTheme("ace/theme/"+themeInit);
+	editor.$blockScrolling = Infinity;
+	editor.session.setMode("ace/mode/html");
+	document.getElementById('editor').style.fontSize=fontInit;
+	editor.setOption("showPrintMargin",false);
+	$('#theme li').click(function(){
+		
+		var themeVal=$(this).text();
+		if(themeVal=='default'){
+			editor.setTheme("ace/theme/sqlserver");
+		}else{
+			editor.setTheme('ace/theme/'+themeVal);
+		}
+	})
+	
+
+	
+
+	
+	$('#run').click(function(){
+		
+		//$('#iframe').contents().find('html').html(editor.getValue());
+		//var ifr=document.getElementById('iframe').contentWindow;
+		
+		
+		
+		//ifr.document.write(editor.getValue());
+		
+		var text = editor.getValue();
+  		var ifr = document.createElement("iframe");
+  		ifr.setAttribute("frameborder", "0");
+  		ifr.setAttribute("id", "iframe");
+  		ifr.setAttribute("scrolling","auto");
+  		document.getElementById("console").innerHTML = "";
+  		document.getElementById("console").appendChild(ifr);
+  		var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+  		ifrw.document.open();
+  		ifrw.document.write(text);  
+  		ifrw.document.close();
+  		//23.02.2016: contentEditable is set to true, to fix text-selection (bug) in firefox.
+  		//(and back to false to prevent the content from being editable)
+  		//(To reproduce the error: Select text in the result window with, and without, the contentEditable statements below.)  
+  		if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
+    		ifrw.document.body.contentEditable = true;
+    		ifrw.document.body.contentEditable = false;
+  		}
+  		
+  		
+		
+		
+		
+		
+		
+	})
+	var htmlDefault="<doctype html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8'>\n\t</head>\n\t<body>\n\n\n\n\n\n\n\n\n\n\t</body>\n</html>";	
+	editor.setValue(htmlDefault);
+	
+	
+	$('#verticalContainer').jqxSplitter({ width: $('#verticalContainer').outerWidth(), height: $('#verticalContainer').outerHeight(), panels: [{ size: $('#verticalContainer').outerWidth()/2 }] });
+	
+	
+	
+	
+})
+
+
+</script>

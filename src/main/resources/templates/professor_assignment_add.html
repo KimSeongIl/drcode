@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var subjectId = [[${subjectId}]];
+
+
+/*]]>*/
+ 
+</script>
+
+<link rel="stylesheet" href="/webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+
+<script src="/webjars/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/animate-custom.css" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+<link rel="stylesheet" href="/css/myPage.css" />
+<link rel="stylesheet" href="css/professor.css"/>
+
+
+<!-- smart editor -->
+<script type="text/javascript" src="/smarteditor/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="/smarteditor/se2/init.js"></script>
+
+<!-- bootstrap date picker -->
+<script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+<!-- custom -->
+<script src="/js/common.js"></script>
+<script src="/js/professor_assignment_add.js"></script>
+
+
+<link rel="stylesheet" href="css/professor.css" />
+
+<style>
+.bootstrap-datetimepicker-widget {
+z-index:999 !important;
+}
+
+</style>
+
+<script>
+var canselConfirm = function() {
+	if(confirm("목록으로 돌아가시겠습니까?")) {
+		location.href="/professor_assignment_list.html?subjectId="+subjectId;
+	}
+	
+}
+</script>
+
+</head>
+
+<body>
+	<div class="page-wrapper">
+
+		<!-- Codrops top bar -->
+
+
+		<header>
+			<div id="hleft">
+				<img src="/img/logo.png" style="width: 270px; height: 90px;" />
+			</div>
+
+			<div th:include="menu :: professor_menu"></div>
+
+			<div class="clear"></div>
+
+		</header>
+
+		<div class="mypage_main">
+			<h1><span>과제 추가</span></h1>
+		</div>
+		
+		<section class="mypage">
+			<div class="professor_content">
+				<div id="assignmentAdd" style="width: 800px; margin: 0 auto;">
+					<form>
+						<div class="form-group">
+							<div class="col-sm-12" style="z-index:999">
+								<input type="text" class="form-control" placeholder="제목" id="assignmentName"/>
+							</div>
+							<div class="datePicker">
+								<div class="col-sm-6" style="z-index:999">
+									<div class="form-group">
+										<span>제출기한</span>
+										<div class="input-group date" id="limitTimePicker">
+											<input type="text" class="form-control" id="limitTime"/> 
+											<span class="input-group-addon"> 
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class='col-sm-6' style="z-index:999">
+									<div class="form-group">
+										<span>연장기한</span>
+										<div class="input-group date" id="extensionTimePicker">
+											<input type="text" class="form-control" id="extensionTime"/> 
+											<span class="input-group-addon"> 
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12" style="z-index:998">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<span>자동채점 </span> 
+											<input type="checkbox" id="checkAutoScoring"/>
+							      		</span>
+							      	<input type="text" class="form-control" placeholder="답" id="answer"/>
+								</div>
+							</div>
+							
+							<div class="col-sm-12" style="float:inherit">
+								<textarea id="content" class="smarteditor2 content" rows="10" cols="100" style="width: 756px; height: 412px;">
+								
+								</textarea>
+							</div>
+								
+							<div style="margin-top:10px; margin-bottom:60px; margin-right:25px;">
+							<button type="button" onclick="canselConfirm();" style="margin-left:10px;" class="btn btn-default pull-right">취소</button>
+							<button type="submit" class="btn btn-default pull-right" id="insertAssignment">저장</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+		
+		<div class="footer">
+			<h4>© Copyright 2016. All Rights Reserved.</h4>
+		</div>
+	</div>
+</body>
+</html>

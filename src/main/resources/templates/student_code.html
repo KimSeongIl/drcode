@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var id = [[${id}]];
+
+
+/*]]>*/
+ 
+</script>
+
+<link rel="stylesheet" href="/webjars/bootstrap/3.0.3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<script src="/webjars/jquery/2.0.3/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
+
+<script src="/js/common.js"></script>
+<script src="/js/student_assignment.js"></script>
+
+
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/animate-custom.css" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+<link rel="stylesheet" href="/css/myPage.css" />
+<link rel="stylesheet" href="css/student.css" />
+
+<script>
+
+var successCodeGet=function(data){
+
+	$('#assignment_name').html('<span>'+data.assignmentName+'</span>');
+	$('#code_content').html(data.code);
+
+}
+
+var failCodeGet=function(){
+	alert('제출한 코드를 가져오는데 실패하였습니다.');
+}
+
+$(document).ready(function(){
+	
+	
+	requestJsonData('/studentGetCode','GET',{assignmentId : id},successCodeGet,failCodeGet);
+	
+});
+
+</script>
+
+<style>
+#code_content {
+
+	width:100%;
+	min-height:500px;
+}
+
+#assignment_name {
+	text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+	
+
+		<!-- Codrops top bar -->
+
+
+	
+		
+
+		<h1 id="assignment_name">
+				
+		</h1>
+		
+		<textarea id="code_content" readonly="readonly">
+		
+		</textarea>
+		
+		
+		
+	
+
+
+</body>
+</html>

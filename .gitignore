@@ -122,3 +122,15 @@ crashlytics-build.properties
 fabric.properties
 src/main/resources/application.yml
 .svn
+
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

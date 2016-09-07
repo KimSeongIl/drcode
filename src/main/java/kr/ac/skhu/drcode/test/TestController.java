@@ -18,6 +18,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,7 +45,7 @@ public class TestController {
 		System.out.println(headerAccessor.getSessionId());
 
 		
-		
+		template.convertAndSendToUser("201132006","/topic/coding", "dkdkdk11111");
 		
 		
 		return new Greeting(headerAccessor.getSessionId());
@@ -57,7 +58,9 @@ public class TestController {
 		Thread.sleep(3000); // simulated delay
 		System.out.println(headerAccessor.getSessionId());
 		
-		template.convertAndSendToUser(headerAccessor.getSessionId(),"/topic/greetings", "dkdkdk"+headerAccessor.getSessionId());
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("msg","fmkff");
+		template.convertAndSendToUser(headerAccessor.getSessionId(),"/topic/greetings", map);
 		
 		
 		

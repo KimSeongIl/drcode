@@ -1,0 +1,43 @@
+.pagination {
+	cursor:pointer;
+}
+
+.insertUser {
+	float:right;
+	position:relative;
+	top:-41px;
+	margin-right:117px;
+}
+
+.admin_tab {
+	padding-left:120px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+	background-color:darkslategrey;
+}
+.nav-pills {
+	display:inline;
+	font-weight:600;
+
+}
+
+.admin_content {
+    padding-top:80px;
+	background:white;
+	width:1040px;
+	min-height:500px;
+    margin:0 auto;
+    border:1px solid #e5e5e5;
+}
+
+.admin_table{
+	width: 800px;
+    margin: 0 auto;
+    margin-bottom:100px;
+}
+
+.admin_table th{
+	text-align:center;
+	background:whitesmoke;
+}
+

@@ -1,0 +1,25 @@
+<div id="editor">
+				
+</div>
+		
+<div id="console" >
+	
+				
+	
+</div>
+
+
+<script src="js/c_java.js"></script>
+<script>
+var editor = ace.edit("editor");
+editor.$blockScrolling = Infinity;
+editor.setTheme("ace/theme/"+themeInit);
+document.getElementById('editor').style.fontSize=fontInit;
+editor.setOption("showPrintMargin",false);
+editor.session.setMode("ace/mode/c_cpp");
+
+$("#codeContainer").splitter({splitHorizontal:true,A:$('#editor'),B:$('#console'),closeableto:100});
+
+var cDefault="#include<stdio.h>\n\nint main(void) {\n\n\n\n\n\n\n\n\n\n}";
+editor.setValue(cDefault);
+</script>

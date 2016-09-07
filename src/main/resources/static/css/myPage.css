@@ -1,0 +1,167 @@
+.assignmentContent td{
+	text-align:left;
+}
+
+.assignment{
+	float:left;
+	display:inline-block;
+	margin-right:20px;
+}
+
+.assignment_t1 {
+	padding:60px !important;
+}
+
+.assignment_t2 {
+	padding:53px !important;
+}
+
+.student_assignment_table>tbody>tr>th:first-child {
+	padding-left:20px !important;
+}
+
+.student_assignment_table>tbody>tr>th:nth-child(2) {
+	padding-left:20px !important;
+	font-weight:initial !important;
+}
+
+
+.professor_assignment_table>tbody>tr>th:first-child {
+	padding-left:20px !important;
+}
+
+.professor_assignment_table>tbody>tr>th:nth-child(2) {
+	padding-left:20px !important;
+	font-weight:initial !important;
+}
+
+.list_table {
+	margin-bottom:100px;
+}
+
+.list_table a {
+	color:black;
+}
+
+.list_table tr:first-child {
+	background:whitesmoke;
+}
+#menu { 
+	position:relative;
+	margin-top:45px;
+	height:70%;
+}
+
+.nav-main {
+	list-style:none;
+}
+
+.nav-main>li {
+	float:right;
+	width:100px	;
+	
+}
+.nav-main>li>a {
+	display:block;
+	padding:7px 10px;
+	color:black;
+	border-radius:4px;
+}
+.nav-main>li>a:hover {
+	color:#fff;
+	background:#316441 !important;
+}
+
+.nav-main li a {
+	font-size:14px;
+	font-style:normal;
+	margin-left:0;
+	margin-right:0;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.mypage_main {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	background-image:url('../img/menu_bar.jpg');
+	background-size:cover;
+	height:160px;
+	text-align:center;
+}
+
+.mypage_table {
+
+	border-top:1px solid #e5e5e5;
+	margin:0 auto;
+}
+
+.mypage_table th{
+	width:200px;
+	height:80px;
+	background-color:#f9f9f9;
+	border-right:1px solid #e5e5e5;
+	text-align:center;
+	
+	
+}
+.mypage_table tr {
+	border-bottom:1px solid #e5e5e5;
+}
+.mypage_table td{
+	width:400px;
+	padding:20px;
+}
+
+.mypage_main {
+	padding-top:2.2%;
+}
+
+.mypage_button {
+	border:1px solid #bfbfbf;
+	background:#fff;
+	font-weight:800;
+	width:70px;
+	height:50px;
+	float:right;
+	margin-right:220px;
+	margin-top:40px;
+}
+
+.mypage_content {
+    padding-top:80px;
+	background:white;
+	width:1040px;
+	height: 600px;
+    margin:0 auto;
+    border:1px solid #e5e5e5;
+}
+
+.mypage_main h1 {
+	color:white;
+	font-size:45px;
+	font-weight:bold;
+}
+
+.mypage {
+	width:1040px;
+	margin: 0 auto;
+	position: relative;
+	
+	text-align:center;
+}
+
+.paginationContainer {
+	position:absolute;
+	bottom:0;
+	right:35%;
+	left:35%;
+}
+
+
+
+
+
+
