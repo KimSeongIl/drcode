@@ -1,4 +1,4 @@
-	var signUp=function(data){
+var signUp=function(data){
 	alert('회원가입 성공');
 	location.href = "/";
 }
